@@ -107,7 +107,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
-        android:id="@+id/list1"
+        android:id="@+id/listView"
         android:layout_width="409dp"
         android:layout_height="627dp"
         android:layout_marginStart="1dp"
