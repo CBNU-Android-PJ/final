@@ -63,10 +63,14 @@
         <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_all_recipe.xml" value="0.358695652173913" />
         <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_combine.xml" value="0.33" />
         <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_ingredient_select.xml" value="0.3515625" />
-        <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_login.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_loading.xml" value="0.365625" />
+        <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_myrefrigerator.xml" value="0.358695652173913" />
         <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_period_insert.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/activity_register.xml" value="0.365625" />
         <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/fragment1.xml" value="0.17806484295845998" />
+        <entry key="..\:/AndroidStudio_workspace/final-mid-complete-new2/app/src/main/res/layout/row_listview.xml" value="0.3555253623188406" />
         <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_all_recipe.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_date.xml" value="0.264" />
         <entry key="..\:/Users/djaxl/AndroidStudioProjects/date/app/src/main/res/layout/activity_date_picker.xml" value="0.2" />

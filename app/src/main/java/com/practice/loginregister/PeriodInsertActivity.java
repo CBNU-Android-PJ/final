@@ -47,6 +47,7 @@ public class PeriodInsertActivity extends AppCompatActivity {
         periods = get_ingredient_intent.getStringArrayListExtra("periods");   //현재 선택한 재료의 유통기한 배열에 담음
         //ingredients + "/" + periods  <- 이 문자열을 합쳐서 ingredient_period에 넣을 것임
 
+
         for(int i=0; i<ingredients.size(); i++){
             System.out.println("재료명: " + ingredients.get(i));
             System.out.println("유통기한: " + periods.get(i));
@@ -55,9 +56,8 @@ public class PeriodInsertActivity extends AppCompatActivity {
         }
 
         //리스트뷰에 ingredient_period를 담기 위한 어댑터. 리스트뷰와 배열을 연결해주는 객체임
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, ingredient_period);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ingredient_period);
         listview.setAdapter(adapter);       //리스트뷰에 값을 세팅
-
 
         //완료버튼 누르면 디비에 저장하고 나의냉장고로 화면 이동
         complete_btn.setOnClickListener(new View.OnClickListener() {

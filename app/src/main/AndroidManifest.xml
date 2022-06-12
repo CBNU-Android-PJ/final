@@ -36,11 +36,13 @@
         <activity
             android:name=".CombinefinalActivity"
             android:exported="true"/>
-
-        --
         <!--여기에서 시작 액티비티 설정-->
         <activity
             android:name=".MainActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

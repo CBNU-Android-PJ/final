@@ -42,13 +42,14 @@ public class DatabaseAccess {
 
         List query_name=new ArrayList<String>();
         for(int i=0; i<name.size();i++) {
-            query_name.add("'%" + name.get(i).toString() + "%'");
+            query_name.add("%" + name.get(i).toString() + "%");
             if (i != name.size() - 1) {
-                query_name.add(" or ");
+                query_name.add("%");
             }
         }
-            String joinQuery=String.join("",query_name);
+            String joinQuery= "'" + String.join("",query_name) + "'";
 
+        System.out.println(joinQuery);
 
         /*System.out.println(joinQuery);*/
         c = db.rawQuery("SELECT menu from recipe_version2 Where ingredients like"+joinQuery, new String[]{});

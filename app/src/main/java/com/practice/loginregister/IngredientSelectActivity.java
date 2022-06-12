@@ -38,6 +38,7 @@ public class IngredientSelectActivity extends AppCompatActivity implements DateP
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         period = format.format(calendar.getTime());
+        periods.add(period);     //해당 버튼에 매칭되는 인덱스에 저장된 유통기한을 periods에 삽입
     }
 
     @Override
@@ -209,18 +210,17 @@ public class IngredientSelectActivity extends AppCompatActivity implements DateP
                     {
                         mButton[INDEX].setSelected(false);
                         mButton[INDEX].setBackgroundColor(Color.WHITE);
-                        // checkButton.setVisibility(checkButton.VISIBLE);
                     }
 
                     //버튼이 클릭되어 있지 않은 상태라면
                     else {
-                        mButton[INDEX].setSelected(true);
-                        mButton[INDEX].setBackgroundColor(Color.parseColor("#87CEFA"));     //색깔 스카이블루로 바꾸고
                         //데이트피커 열고 날짜 선택한 후 btn_period에 문자열 삽입
                         DialogFragment datepicker = new DatePickerFragment();
                         datepicker.show(getSupportFragmentManager(), "date picker");
-                        btn_period[INDEX] = period;
-                        //  checkButton.setVisibility(checkButton.INVISIBLE);
+//                        btn_period[INDEX] = period;
+
+                        mButton[INDEX].setSelected(true);
+                        mButton[INDEX].setBackgroundColor(Color.parseColor("#87CEFA"));     //색깔 스카이블루로 바꾸고
 
                     }
 
@@ -238,17 +238,16 @@ public class IngredientSelectActivity extends AppCompatActivity implements DateP
                     INDEX = i;
                     // 재료 버튼이 선택되어져 있는 것만 찾아 데이터를 저장한다.
                     if (mButton[INDEX].isSelected()) {
-                        String str = mButton[INDEX].getText().toString();
-                        ingredients.add(str);               //재료 버튼에 있는 재료 문자열을 ingredients에 삽입
-                        periods.add(btn_period[INDEX]);     //해당 버튼에 매칭되는 인덱스에 저장된 유통기한을 periods에 삽입
+                        String ingredient = mButton[INDEX].getText().toString();
+                        ingredients.add(ingredient);               //재료 버튼에 있는 재료 문자열을 ingredients에 삽입
+//                        periods.add(btn_period[INDEX]);     //해당 버튼에 매칭되는 인덱스에 저장된 유통기한을 periods에 삽입
                     }
                 }
-             /* 저장된 리스트배열이 출력 되는지 확인하는 용도
-             for (String i:mDataList)
-             {
-                 Log.v("asd",i);
-             }
-            */
+                for(int i=0; i<ingredients.size(); i++){
+                    System.out.println(ingredients.get(i));
+                    System.out.println(periods.get(i));
+                }
+
                 Intent intent = new Intent(getApplicationContext(), PeriodInsertActivity.class);
                 intent.putExtra("ingredients", ingredients);
                 intent.putExtra("periods", periods);

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -23,6 +24,7 @@ public class MyRefrigeratorActivity extends Activity {
     private Button refDel;
     private ListView refList;
     private String name;        //현재 로그인한 사용자 이름 담을 변수
+    private ImageButton iv_ice;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,20 +53,22 @@ public class MyRefrigeratorActivity extends Activity {
         });
 
         //DB에 있는 추가한 재료 string으로 가져와서 listview에 배열로 넣기
-        String[][] my_refrigerator_arr = new String[20][2];        //재료와 유통기한 넣을 2차원 배열
+        String[][] my_refrigerator_arr = new String[50][2];        //재료와 유통기한 넣을 2차원 배열
         my_refrigerator_arr =  db_helper.MyRefrigerator(db, "정재민");
         List<String> data = new ArrayList<>();
 
         for(int i=0; i<my_refrigerator_arr.length; i++){            //행의 수만큼 반복
-//            if(my_refrigerator_arr[i][0]!=null){        //null이 아니면 리스트뷰 배열에 추가
-//                data.add(my_refrigerator_arr[i][0] + "/" + my_refrigerator_arr[i][1]);      // 재료/소비기한 형식으로 데이터 추가
-//            }
-            data.add(my_refrigerator_arr[i][0] + "/" + my_refrigerator_arr[i][1]);      // 재료/소비기한 형식으로 데이터 추가
-            System.out.println(data.get(i));
+            if(my_refrigerator_arr[i][0]!=null){        //null이 아니면 리스트뷰 배열에 추가
+                data.add(my_refrigerator_arr[i][0] + "/" + my_refrigerator_arr[i][1]);      // 재료/소비기한 형식으로 데이터 추가
+                System.out.println("myref: " + data.get(i));;
+
+            }
        }
 
+        System.out.println(data);
+
         refList = (ListView) findViewById(R.id.ref_listview);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_single_choice, data);   //리스트뷰와 연결할 어댑터
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);   //리스트뷰와 연결할 어댑터
         refList.setAdapter(adapter); //adapter를 list에 set. >> ListView와 Adapter 연결
 
         Button refDel = (Button) findViewById(R.id.ref_del);
@@ -103,6 +107,8 @@ public class MyRefrigeratorActivity extends Activity {
         Intent intent = new Intent(this, IngredientSelectActivity.class);
         startActivity(intent);
     }
+
+
 
 }
 

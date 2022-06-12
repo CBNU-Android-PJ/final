@@ -43,7 +43,7 @@ public class CombineActivity extends AppCompatActivity {
         ref_name = findViewById(R.id.ref_name);
         ref_name.setText(name + "의 냉장고");
 
-        String[][] my_refrigerator_arr = new String[20][2];             //재료와 유통기한 넣을 2차원 배열
+        String[][] my_refrigerator_arr = new String[50][2];             //재료와 유통기한 넣을 2차원 배열
         my_refrigerator_arr =  db_helper.MyRefrigerator(db, name);
 
         //DB에 있는 나의 냉장고 데이터를 string으로 가져와서 listview에 배열로 넣기
@@ -92,12 +92,12 @@ public class CombineActivity extends AppCompatActivity {
                     }
                 }
 
-
                 // listview 선택 초기화.
                 list2.clearChoices();
 
                 // listview 갱신.
                 adapter.notifyDataSetChanged();
+
                 Intent intent = new Intent(getApplicationContext(), CombinefinalActivity.class); // 조합된 레시피를 보여주는 xml로 넘어간다.
                 intent.putExtra("data", mDataList); // 배열에 저장되어있는 string 들을 FINAL COMBINE에 넘겨준다.
                 startActivity(intent);
