@@ -105,6 +105,7 @@ public class MyRefrigeratorActivity extends Activity {
     //재료추가 버튼 이동
     public void Add() {
         Intent intent = new Intent(this, IngredientSelectActivity.class);
+        intent.putExtra("name", name);      //이름 인텐트로 넘김
         startActivity(intent);
     }
 

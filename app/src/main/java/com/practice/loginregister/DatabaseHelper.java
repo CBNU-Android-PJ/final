@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     protected void InsertToMyRefrigerator(SQLiteDatabase db, String name , String ingredient, String period){
         //insert_arr의 첫번째 열은 ingredient, 두번째 열은 period
 //        String id = "";
-        int row = 0;
+//        int row = 0;
         try {
 //            String user_find_SQL = "SELECT id FROM user_info WHERE name='" + name + "';";
 //            cursor = db.rawQuery(user_find_SQL, null);
@@ -99,7 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //            }
 //            String SQL = "INSERT INTO refrigerator" + id + "(ingredient, period) VALUES('" + ingredient +
 //                    "', '" + period + "');";      //일단 유통기한으로 넣도록 구현. 소비기한으로 어떻게 바꿀지
-            String SQL = "INSERT INTO refrigerator1(ingredient, period) VALUES('" + ingredient +
+            String SQL = "INSERT INTO refrigerator4(ingredient, period) VALUES('" + ingredient +
                     "', '" + period + "');";      //일단 유통기한으로 넣도록 구현. 소비기한으로 어떻게 바꿀지
             db.execSQL(SQL);    //SQL 실행함으로써 데이터 삽입
 
@@ -121,9 +121,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //            while (cursor.moveToNext()){
 //                id = Integer.toString(cursor.getInt(0));       //현재 로그인한 유저의 id키값
 //            }
-
-            //String SQL = "SELECT * FROM refrigerator" + id + ";";
-            String SQL = "SELECT * FROM refrigerator1;";
+//
+//            String SQL = "SELECT * FROM refrigerator" + id + ";";
+            String SQL = "SELECT * FROM refrigerator4;";
             cursor = db.rawQuery(SQL, null);
             while (cursor.moveToNext()){        //항 행씩 읽어오면서
                 return_arr[row][0] = cursor.getString(1);       //재료이름
@@ -140,15 +140,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //현재 로그인한 사용자의 이름을 받아 테이블을 찾고 나의 냉장고에서 재료 삭제
     protected void RemoveIngredient(SQLiteDatabase db, String name, String ingredient){
-        String id = "";
+//        String id = "";
         try {
 //            String user_find_SQL = "SELECT id FROM user_info WHERE name='" + name + "';";
 //            cursor = db.rawQuery(user_find_SQL, null);
 //            while (cursor.moveToNext()){
 //                id = Integer.toString(cursor.getInt(0));       //현재 로그인한 유저의 id키값
 //            }
-            //String SQL = "DELETE FROM refrigerator" + id + " WHERE ingredient='" + ingredient + "';";
-            String SQL = "DELETE FROM refrigerator1 WHERE ingredient='" + ingredient + "';";
+//            String SQL = "DELETE FROM refrigerator" + id + " WHERE ingredient='" + ingredient + "';";
+            String SQL = "DELETE FROM refrigerator4 WHERE ingredient='" + ingredient + "';";
             db.execSQL(SQL);        //재료 이름에 매칭되는 행 삭제
 
 

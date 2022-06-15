@@ -27,6 +27,7 @@ public class IngredientSelectActivity extends AppCompatActivity implements DateP
     private ArrayList<String>ingredients;
     private ArrayList<String>periods;
     private String period;                                  //데이트피커에서 날짜 선택했을 때, 잠시 저장할 변수
+    private String name;
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
@@ -48,6 +49,9 @@ public class IngredientSelectActivity extends AppCompatActivity implements DateP
 
         ingredients = new ArrayList<String>();
         periods = new ArrayList<String>();
+
+        Intent getintent = getIntent();
+        name = getintent.getStringExtra("name");    //현재 로그인한 사용자 이름 저장
 
         mButton[0] = (Button) findViewById(R.id.meat_button1);
         mButton[1] = (Button) findViewById(R.id.meat_button2);
@@ -251,6 +255,7 @@ public class IngredientSelectActivity extends AppCompatActivity implements DateP
                 Intent intent = new Intent(getApplicationContext(), PeriodInsertActivity.class);
                 intent.putExtra("ingredients", ingredients);
                 intent.putExtra("periods", periods);
+                intent.putExtra("name", name);
                 startActivity(intent);
             }
         });

@@ -21,7 +21,7 @@ public class PeriodInsertActivity extends AppCompatActivity {
     private ArrayList<String> periods;
     private ArrayList<String> ingredient_period;    // 재료/유통기한 형식의 문자열 담을 배열
     private ArrayList<String>[] insert_arr;           //디비에 저장할 2차원 배열
-
+    private String name;
     //SQLite 연결 관련 변수들
     SQLiteDatabase db;
     DatabaseHelper db_helper;       //디비 동작 관련 함수 있는 객체
@@ -43,6 +43,7 @@ public class PeriodInsertActivity extends AppCompatActivity {
         ingredient_period = new ArrayList<String>();
 
         Intent get_ingredient_intent = getIntent();
+        name = get_ingredient_intent.getStringExtra("name");    //이름
         ingredients = get_ingredient_intent.getStringArrayListExtra("ingredients");    //현재 선택한 재료 배열에 담음
         periods = get_ingredient_intent.getStringArrayListExtra("periods");   //현재 선택한 재료의 유통기한 배열에 담음
         //ingredients + "/" + periods  <- 이 문자열을 합쳐서 ingredient_period에 넣을 것임
@@ -71,6 +72,7 @@ public class PeriodInsertActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(PeriodInsertActivity.this, MyRefrigeratorActivity.class);
+                intent.putExtra("name", name);
                 startActivity(intent);
             }
         });
